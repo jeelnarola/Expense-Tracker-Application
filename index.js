@@ -9,10 +9,10 @@ app.use(cors())
 app.get('/',(req,res)=>{
     res.status({msg:"Welcome To Expense Tracker Application."})
 })
-
-app.listen(process.env.PORT,()=>{
-    console.log("Server Start :- ",process.env.PORT);
-    DataBase()
-})
+DataBase()
+// app.listen(process.env.PORT,()=>{
+//     console.log("Server Start :- ",process.env.PORT);
+    
+// })
 
 module.exports = app
