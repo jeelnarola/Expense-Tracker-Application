@@ -4,6 +4,7 @@ const cookie = require('cookie-parser')
 const DataBase = require('./configs/db')
 const AuthRouter = require('./routers/Auth/auth.router')
 const ExRouter = require('./routers/Expense/expense.router')
+const manageIsUser = require('./middlewares/manageIsUser')
 const app = express()
 
 const congigCors = {
@@ -17,7 +18,7 @@ app.options("",cors(congigCors))
 app.use(cors(congigCors))
 app.use(cookie())
 app.use('/api/auth',AuthRouter)
-app.use('/api/expense',ExRouter)
+app.use('/api/expense',manageIsUser,ExRouter)
 
 app.get('/',(req,res)=>{
     res.send({msg:"Welcome To Expense Tracker Application"})
