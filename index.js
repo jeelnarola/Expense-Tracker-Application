@@ -5,6 +5,7 @@ const DataBase = require('./configs/db')
 const AuthRouter = require('./routers/Auth/auth.router')
 const ExRouter = require('./routers/Expense/expense.router')
 const manageIsUser = require('./middlewares/manageIsUser')
+const Expense = require('./models/Expense/expense.models')
 const app = express()
 
 const congigCors = {
@@ -20,8 +21,9 @@ app.use(cookie())
 app.use('/api/auth',AuthRouter)
 app.use('/api/expense',manageIsUser,ExRouter)
 
-app.get('/',(req,res)=>{
-    res.send({msg:"Welcome To Expense Tracker Application"})
+app.get('/',async(req,res)=>{
+    const expenses = await Expense.find();
+    res.status(201).json({data:expenses});
 })
 
 app.listen(process.env.PORT,()=>{
