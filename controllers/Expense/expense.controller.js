@@ -68,7 +68,7 @@ const ExpenseShow = async(req,res)=>{
         });
     } catch (err) {
         console.log("Error In ExpenseShow Controller :- ",err.message)
-    res.status(400).json({message:'Invalid CSV File :- ',err:err})
+    res.status(400).json({message:'Internal Error :- ',err:err})
     }
 }
 
