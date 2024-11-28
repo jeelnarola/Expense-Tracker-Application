@@ -18,12 +18,12 @@ app.use(express.urlencoded({extended:true}))
 app.options("",cors(congigCors))
 app.use(cors(congigCors))
 app.use(cookie())
-app.use(express.static(path.join(__dirname,'./uplods')))
+// app.use(express.static(path.join(__dirname,'./uplods')))
 app.use('/api/auth',AuthRouter)
-app.use('/api/expense',manageIsUser,ExRouter)
+app.use('/api/expense',ExRouter)
 
 app.get('/',(req,res)=>{
-    res.send({msg:"Welcome To Expense Tracker Application"})
+    res.send({msg:"Welcome To Expense Tracker Application this."})
 })
 
 app.listen(process.env.PORT,()=>{
