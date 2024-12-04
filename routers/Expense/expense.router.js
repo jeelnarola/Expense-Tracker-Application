@@ -5,8 +5,8 @@ const {UploadCSV, ExpenseShow, ExpenseUpdate, ExpenDelete} = require('../../cont
 const upload = multer({dest:'uplods/'})
 const ExRouter =Router()
 
-ExRouter.post('/bulk-upload',upload.single('file'),UploadCSV)
 ExRouter.get('/show',ExpenseShow)
+ExRouter.post('/bulk-upload',upload.single('file'),UploadCSV)
 ExRouter.patch('/update/:id',ExpenseUpdate)
 ExRouter.delete('/delete',ExpenDelete)
 
