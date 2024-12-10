@@ -53,7 +53,6 @@ const Login = async(req,res)=>{
         res.status(201).send({success:false,message:'Email Not Match..'});
         }
         const isPassword = await data.comparePassword(password);
-        console.log("data",data)
         if(isPassword){
             GenerateTokenAndSetCookie(data._id,res)
             res.status(201).json({success:true,user:{

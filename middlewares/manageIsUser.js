@@ -5,7 +5,6 @@ require('dotenv').config()
 const manageIsUser = async(req,res,next)=>{
     try {
         let token = req.cookies['jwt-ExpenseTracker']
-        console.log(token)
         if(!token){
             res.status(401).json({success:false,message:"Unauthorized - No Token Provided"})
         }
